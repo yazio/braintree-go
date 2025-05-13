@@ -101,7 +101,7 @@ func (g *DisputeGateway) RemoveEvidence(ctx context.Context, disputeID string, e
 func (g *DisputeGateway) Accept(ctx context.Context, disputeID string) error {
 	resp, err := g.executeVersion(ctx, "PUT", "disputes/"+disputeID+"/accept", nil, apiVersion4)
 	if err != nil {
-		return nil
+		return err
 	}
 	switch resp.StatusCode {
 	case 200:
